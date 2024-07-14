@@ -95,3 +95,31 @@ injector.load_containers(container_1, container_2)
 
 int_value = injector.inject(int) # int_value == 99
 ```
+
+
+## Dependency with dependencies
+You can inject dependencies in the `Provider`s definitions.
+```python
+from di.container import Container
+from di.provider import Fatory
+from di.injector import Injector
+
+class MyDataClass:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+
+injector = Injector()
+
+container = Container(
+    Factory[int](lambda: 1),
+    Factory[str](lambda: "John Doe"),
+    Factory[MyDataClass](lambda: MyDataClass(name=injector.inject(str), age=injector.inject(int)))
+)
+
+injector.load_container(container)
+
+my_obj = injector.inject(MyDataClass)
+# my_obj.name == "John Doe"
+# my_obj.age == 1
+```
