@@ -4,6 +4,10 @@ from di._constants import _DEFAULT_QUALIFIER
 from di.container import Container
 from di.injector import Injector
 
+__version__ = "0.1.0"
+__author__ = "Hugo Hideki Yamashita (hugo.hideki@gmail.com)"
+__repo__ = "https://github.com/hhideki/python-dependency-injector"
+
 
 injector = Injector()
 
