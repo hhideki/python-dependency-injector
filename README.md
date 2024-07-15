@@ -12,6 +12,9 @@ There are 3 steps to use this library:
 2. Load the `Container`.
 3. Inject a dependency.
 
+## API
+More API content can be found [here](docs/api/index.md).
+
 
 ## Examples
 ### Simple injection
